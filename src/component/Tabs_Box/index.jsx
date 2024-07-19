@@ -25,6 +25,7 @@ import DummyCard from "../card/DummyCard";
 const Tabs_Box = () => {
   const [meals, setMeals] = useState([]);
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
+  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     fetch("https://dummyjson.com/recipes")
@@ -35,8 +36,13 @@ const Tabs_Box = () => {
       });
   }, []);
 
+  const handleClick = () => {
+    setIsSelected(!isSelected);
+    onClick();
+  };
+
   return (
-    <Box maxW="1450px" m="auto">
+    <Box w={{base:'320px', lg:'100%', xxl:'1550px'}} m="auto">
       <Tabs
         position="relative"
         variant="unstyled"
@@ -44,19 +50,21 @@ const Tabs_Box = () => {
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
-        maxW="1550px"
+        W="1250px"
+        m='auto'
       >
         <Flex
           backgroundColor="#fff"
           h="100px"
-          w="1450px"
+          w={{base:'100%', sm:'100%',md:'100%', lg:'100%',  xl:'100%' }}
           position="sticky"
           zIndex={10}
           top="0"
-          gap="40px"
-          justify="space-around"
+          gap="110px"
+          justify="center"
           align="center"
           color="#004370"
+          
         >
           {isMobile ? (
             <Menu>
@@ -64,10 +72,11 @@ const Tabs_Box = () => {
                 as={IconButton}
                 icon={<HamburgerIcon />}
                 variant="unstyled"
-                p="10px 24px"
+                p="15px 24px"
                 bgColor="#9B9B9B"
                 color="#fff"
                 borderRadius="0"
+               
               />
               <MenuList>
                 <MenuItem>All Meals</MenuItem>
@@ -79,11 +88,13 @@ const Tabs_Box = () => {
             </Menu>
           ) : (
             <>
+            
               <Tab
                 fontWeight={600}
                 outline="none"
                 fontSize="16px"
                 lineHeight="24px"
+                
                 _hover={{
                   outline:'none'
                 }}
@@ -135,20 +146,27 @@ const Tabs_Box = () => {
                 Week 4
               </Tab>
               <TabIndicator
-            height="3px"
-            width="20px"
+            height="4px"
+            width="24px"
             bg="#004370"
             borderRadius="1px"
-            mt="35px"
+            mt="35px" 
           />
+              
             </>
           )}
           <Button
             variant="unstyled"
             p="10px 24px"
             borderRadius={0}
-            bgColor="#9B9B9B"
             color="#fff"
+            onClick={handleClick}
+      border={isSelected ? '2px solid' : '' } 
+      borderColor={isSelected ? '#004370' : 'gray' }
+      bgColor={isSelected ? '#004370' : '#9B9B9B' }
+      transition="border-color 0.3s"
+      outlineColor='none'
+            
           >
             <Addtoweek />
           </Button>
@@ -162,6 +180,10 @@ const Tabs_Box = () => {
               columns={{ base: 1, lg: 2, xl: 3 }}
               justifyItems="center"
               rowGap={10}
+              alignItems='center'
+              
+              m='auto'
+              
             >
               {meals.map((object, index) => {
                 return (

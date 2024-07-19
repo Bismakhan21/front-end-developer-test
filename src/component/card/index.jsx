@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -22,15 +22,29 @@ const Card_Box = ({
   rating,
   mealType,
 }) => {
+
+  const [isSelected, setIsSelected] = useState(false);
+
+
+  const handleClick = () => {
+    setIsSelected(!isSelected);
+    onClick();
+  };
   return (
     <Card
-      onClick={onClick}
       cursor="pointer"
       w={{ base: "300px", lg: "400px" }}
       borderRadius="12px"
       bgColor="#FAFAFA"
+      h={{base:'750px', lg:'650px'}}
     >
-      <CardBody>
+      <CardBody 
+      onClick={handleClick}
+      border={isSelected ? '3px solid' : '' } 
+      borderColor={isSelected ? '#004370' : 'gray' }
+      borderRadius={isSelected ? '11px' : '' }
+      transition="border-color 0.3s"
+      >
         <Image
           src={image}
           alt={name}

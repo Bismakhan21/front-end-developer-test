@@ -9,7 +9,7 @@ import {
   
   function Hero() {
     return (
-      <Box>
+      <Box overflowX='hidden'>
         <Flex
           backgroundImage="url(./images/hero-image.png)"
           backgroundSize="cover"

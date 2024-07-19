@@ -17,7 +17,11 @@ const Addtoweek = () => {
     <Box>
       <Popover>
         <PopoverTrigger>
-          <button variant="unstyled" outline='none' pb="24px">
+          <button variant="unstyled" outline='none'
+            borderRadius={0}
+            bgColor="#9B9B9B"
+            color="#fff"  
+            >
             Add to Week
           </button>
         </PopoverTrigger>
@@ -25,8 +29,8 @@ const Addtoweek = () => {
           <PopoverContent
             variant="unstyled"
             display="flex"
-            w="698px"
-            h="412px"
+            w={{base:'320px', lg:'658px'}}
+            h={{base:'300px', lg:'412px'}}
             justify="center"
             mr="380px"
           >
@@ -39,7 +43,7 @@ const Addtoweek = () => {
               w="100%"
               textAlign="center"
               h="39px"
-              fontSize="25px"
+              fontSize={{base:'20px', lg:"25px"}}
             >
               Select Week
             </PopoverHeader>
@@ -49,14 +53,16 @@ const Addtoweek = () => {
               display="flex"
               flexDirection="row"
               mt='100px'
+              
             >
               <Button
                 variant="unstyled"
-                p="10px 24px"
+                p={{base:'1px 2px', lg:"10px 24px"}}
+                fontSize={{base:'8px', lg:"20px"}}
+                w={{base:'60px',lg:"150px"}}
                 borderRadius={10}
                 bgColor=" #CFECFF"
                 color="#191919"
-                w="150px"
                 h="48px"
                 m="auto"
               >
@@ -64,10 +70,12 @@ const Addtoweek = () => {
               </Button>
               <Button
                 variant="unstyled"
-                p="10px 24px"
+                p={{base:'1px 2px', lg:"10px 24px"}}
+                fontSize={{base:'8px', lg:"20px"}}
+                w={{base:'60px',lg:"150px"}}
                 borderRadius={10}
                 bgColor="#F2F2F2"
-                w="150px"
+                
                 h="48px"
                 m="auto"
                 color="#191919"
@@ -76,10 +84,12 @@ const Addtoweek = () => {
               </Button>
               <Button
                 variant="unstyled"
-                p="10px 24px"
+                p={{base:'1px 2px', lg:"10px 24px"}}
+                fontSize={{base:'8px', lg:"20px"}}
+                w={{base:'60px',lg:"150px"}}
                 borderRadius={10}
                 bgColor="#F2F2F2"
-                w="150px"
+                
                 h="48px"
                 m="auto"
                 color="#191919"
@@ -89,10 +99,12 @@ const Addtoweek = () => {
 
               <Button
                 variant="unstyled"
-                p="10px 24px"
+                p={{base:'1px 2px', lg:"10px 24px"}}
+                fontSize={{base:'8px', lg:"20px"}}
+                w={{base:'60px',lg:"150px"}}
                 borderRadius={10}
                 bgColor="#F2F2F2"
-                w="150px"
+               
                 h="48px"
                 m="auto"
                 color="#191919"
@@ -103,10 +115,12 @@ const Addtoweek = () => {
             <Popover>
               <Button
                 variant="unstyled"
-                p="10px 24px"
+                p={{base:'1px 5px', lg:"10px 24px"}}
+                fontSize={{base:'12px', lg:"20px"}}
+                w={{base:'100px',lg:"200px"}}
                 borderRadius={0}
                 bgColor=" #004370"
-                w="200px"
+               
                 h="48px"
                 m="auto"
                 color="#fff"
